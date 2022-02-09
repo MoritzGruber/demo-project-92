@@ -6,7 +6,7 @@
 
 `.env.sample >> .env.local`
 
-To deploy you this two environment variables are required:
+To deploy, this two environment variables are required:
 
 ```bash
 CAISY_ID=xxx
