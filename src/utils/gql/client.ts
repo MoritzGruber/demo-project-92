@@ -129,11 +129,12 @@ const additiveLink = from([
   authLink,
   errorLink,
   new HttpLink({
-    uri: `https://caisy.io/api/v1/e/${process.env.CAISY_ID}/graphql`,
+    uri: `https://staging.caisy.io/api/v1/e/${process.env.CAISY_ID}/graphql`,
     headers: {
-      ...(process.env.NEXT_PUBLIC_USE_PREVIEW
-        ? { "x-caisy-preview": true }
-        : {}),
+      "x-caisy-preview": true,
+      // ...(process.env.NEXT_PUBLIC_USE_PREVIEW
+      //   ? { "x-caisy-preview": true }
+      //   : {}),
       ...(process.env.CAISY_TOKEN
         ? { "x-caisy-apikey": process.env.CAISY_TOKEN }
         : {}),

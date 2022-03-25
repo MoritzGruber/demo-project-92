@@ -1,13 +1,11 @@
 import { gql } from "@apollo/client";
 import { f_asset } from "./f_asset";
-import { f_video } from "./f_video";
 import { f_button } from "./f_button";
 import { f_button_external_links } from "./f_link";
 import { f_no_document } from "./f_no_document";
 
 export const f_page = gql`
   ${f_asset}
-  ${f_video}
   ${f_no_document}
   ${f_button}
   ${f_button_external_links}
@@ -45,7 +43,6 @@ export const f_page = gql`
             id
             backgroundImage(locale: $locale) {
               ...Asset
-              ...Video
               ...NoDoc
             }
             headline
@@ -77,7 +74,6 @@ export const f_page = gql`
         title
         image(locale: $locale) {
           ...Asset
-          ...Video
         }
       }
       ... on CompPageHeader {
@@ -85,7 +81,6 @@ export const f_page = gql`
         headline
         backgroundImage {
           ...Asset
-          ...Video
         }
       }
       ... on CompInfographic {
@@ -113,8 +108,6 @@ export const f_page = gql`
         }
         __typename
       }
-      ...Asset
-      ...Video
       ... on CompFacts {
         facts(locale: $locale) {
           ... on CompFactsFact {
