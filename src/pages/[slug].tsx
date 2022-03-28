@@ -12,7 +12,7 @@ import { q_slugs } from "../utils/gql/queries/q_slugs";
 import { q_universal_text } from "../utils/gql/queries/q_universal_text";
 import { IPage } from "../utils/types";
 import { IGenPage, IGenQuery } from "../utils/types_gen";
-
+import { print } from "graphql";
 type ISlugPage = Pick<IPage, "navigation" | "footer" | "Page"> & {
   isIndexPage: boolean | null;
 };
@@ -83,6 +83,8 @@ export const getStaticProps = async ({ params, locale = "en" }) => {
     slug = navRes?.data?.MegaMenu?.home?.[0]?.slug;
   }
 
+  // console.log(` slug`, slug, locale);
+
   const [resPage, resNav, resFooter, resUniversalText]: [
     ApolloQueryResult<Pick<IGenQuery, "allPage">>,
     ApolloQueryResult<Pick<IGenQuery, "MegaMenu">>,
@@ -106,6 +108,10 @@ export const getStaticProps = async ({ params, locale = "en" }) => {
       fetchPolicy: "no-cache",
     }),
   ]);
+
+  // console.log(` gql query`, `${print(q_page)}`.replace(/\\n|\\r|\\/gm, ""));
+
+  // console.log(` resPage`, JSON.stringify(resPage));
 
   return {
     revalidate: 1,
