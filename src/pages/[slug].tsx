@@ -12,7 +12,6 @@ import { q_slugs } from "../utils/gql/queries/q_slugs";
 import { q_universal_text } from "../utils/gql/queries/q_universal_text";
 import { IPage } from "../utils/types";
 import { IGenPage, IGenQuery } from "../utils/types_gen";
-import { print } from "graphql";
 type ISlugPage = Pick<IPage, "navigation" | "footer" | "Page"> & {
   isIndexPage: boolean | null;
 };
