@@ -1,6 +1,6 @@
 module.exports = {
     images: {
-        domains: ['assets.caisy.io']
+        domains: ['assets.caisy.io', 'assets.staging.caisy.io', 'assets.staging.caisy.app']
     },
     i18n: {
         locales: ['en', 'de'],

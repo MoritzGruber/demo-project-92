@@ -18,10 +18,10 @@ export const f_page = gql`
     metaTitle
     metaKeywords
     metaAuthor
-    featuredImage {
-      ...Asset
-      ...NoDoc
-    }
+    # featuredImage {
+    #   ...Asset
+    #   ...NoDoc
+    # }
     components(locale: $locale) {
       ... on CompFaq {
         __typename

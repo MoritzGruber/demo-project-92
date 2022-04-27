@@ -7,7 +7,7 @@ export const q_slugs = gql`
       edges {
         node {
           slug
-          sitemapPriority
+          # sitemapPriority
         }
       }
     }
