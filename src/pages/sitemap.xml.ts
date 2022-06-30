@@ -17,7 +17,9 @@ export const getServerSideProps = async ({ res }) => {
   const { paths } = await getStaticPaths({ locales });
   const allPagesSlugs = (await _qres)?.data?.allPage?.edges;
 
-  const baseUrl = `${process.env.NEXT_PUBLIC_BASE_URL}`;
+  const baseUrl =
+    `${process.env.NEXT_PUBLIC_BASE_URL}` ||
+    "https://demo-project-47.vercel.app";
   const allSlugs = [
     "",
     ...paths.map((slug) => slug?.params?.slug).filter((s) => !!s),

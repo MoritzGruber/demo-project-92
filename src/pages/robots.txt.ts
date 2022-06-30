@@ -3,7 +3,9 @@ const Robots = () => {
 };
 
 export const getServerSideProps = async ({ res }) => {
-  const baseUrl = `${process.env.NEXT_PUBLIC_BASE_URL}`;
+  const baseUrl =
+    `${process.env.NEXT_PUBLIC_BASE_URL}` ||
+    "https://demo-project-47.vercel.app";
 
   const robots = `# *
 User-agent: *

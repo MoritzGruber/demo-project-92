@@ -94,16 +94,6 @@ const errorLink = onError(
   }
 );
 
-const authLink = new ApolloLink((operation, forward) => {
-  operation.setContext(({ headers }) => ({
-    headers: {
-      "x-caisy-apikey": "Mpe5oNRCKYNkhRYGdT0Cjm5KgDQrpVFt",
-      ...headers,
-    },
-  }));
-  return forward(operation);
-});
-
 const retryLink = new RetryLink({
   delay: {
     initial: 600,
@@ -126,17 +116,15 @@ const retryLink = new RetryLink({
 
 const additiveLink = from([
   retryLink,
-  authLink,
   errorLink,
   new HttpLink({
-    uri: `https://staging.caisy.io/api/v1/e/${process.env.CAISY_ID}/graphql`,
+    uri: `https://caisy.io/api/v1/e/${process.env.CAISY_ID}/graphql`,
     headers: {
-      "x-caisy-preview": true,
-      // ...(process.env.NEXT_PUBLIC_USE_PREVIEW
-      //   ? { "x-caisy-preview": true }
-      //   : {}),
-      ...(process.env.CAISY_TOKEN
-        ? { "x-caisy-apikey": process.env.CAISY_TOKEN }
+      ...(process.env.NEXT_PUBLIC_USE_PREVIEW
+        ? { "x-caisy-preview": true }
+        : {}),
+      ...(process.env.CAISY_API_KEY
+        ? { "x-caisy-apikey": process.env.CAISY_API_KEY }
         : {}),
     },
     fetch: customFetch,

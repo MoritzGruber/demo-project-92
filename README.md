@@ -10,7 +10,7 @@ To deploy, this two environment variables are required:
 
 ```bash
 CAISY_ID=xxx
-CAISY_TOKEN=xxx
+CAISY_API_KEY=xxx
 ```
 
 in vercel or in your local `.env.local`
