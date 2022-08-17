@@ -108,7 +108,10 @@ export const getStaticProps = async ({ params, locale = "en" }) => {
     }),
   ]);
 
-  if ((resNav?.data?.MegaMenu?.home?.[0] as IGenPage)?.slug == params.slug) {
+  if (
+    !params?.isIndexPage &&
+    (resNav?.data?.MegaMenu?.home?.[0] as IGenPage)?.slug == params.slug
+  ) {
     return {
       redirect: {
         destination: "/",
