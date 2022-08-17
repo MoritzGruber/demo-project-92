@@ -108,9 +108,13 @@ export const getStaticProps = async ({ params, locale = "en" }) => {
     }),
   ]);
 
-  // console.log(` gql query`, `${print(q_page)}`.replace(/\\n|\\r|\\/gm, ""));
-
-  // console.log(` resPage`, JSON.stringify(resPage));
+  if ((resNav?.data?.MegaMenu?.home?.[0] as IGenPage)?.slug == params.slug) {
+    return {
+      redirect: {
+        destination: "/",
+      },
+    };
+  }
 
   return {
     revalidate: 1,
