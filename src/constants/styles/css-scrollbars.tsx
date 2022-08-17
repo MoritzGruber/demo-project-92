@@ -9,18 +9,18 @@ export const CSSScrollbars = css`
 
   /* Track */
   ::-webkit-scrollbar-track {
-    background: rgba(80, 100, 180, 0.8);
+    background: var(--colorSecondary80);
   }
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: rgba(29, 0, 84, 0.8);
+    background: var(--colorPrimary80);
     transition: 400ms background-color;
     cursor: pointer;
   }
 
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background-color: #1d0054;
+    background-color: var(--colorPrimary100);
   }
 `;

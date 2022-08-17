@@ -11,22 +11,22 @@ export const q_footer = gql`
     Footer(locale: $locale) {
       __typename
       id
-      # sections(locale: $locale) {
-      #   ... on FooterSection {
-      #     __typename
-      #     id
-      #     sectionTitle
-      #     links(locale: $locale) {
-      #       ...Button
-      #       ...ButtonExternalLinks
-      #       ...NoDoc
-      #     }
-      #   }
-      #   ...NoDoc
-      # }
+      sections(locale: $locale) {
+        ... on CompFooterSection {
+          __typename
+          id
+          sectionTitle
+          links(locale: $locale) {
+            ...CompButton
+            ...CompButtonExternalLinks
+            ...NoDoc
+          }
+        }
+        ...NoDoc
+      }
       legalSection(locale: $locale) {
-        ...Button
-        ...ButtonExternalLinks
+        ...CompButton
+        ...CompButtonExternalLinks
         ...NoDoc
       }
     }

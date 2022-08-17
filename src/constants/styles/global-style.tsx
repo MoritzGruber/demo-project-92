@@ -2,16 +2,21 @@ import { createGlobalStyle } from "styled-components";
 import { CSSReset } from "./css-reset";
 import { CSSScrollbars } from "./css-scrollbars";
 
-export const GSBase = createGlobalStyle`
+export const GSBase = createGlobalStyle<{
+  primaryColor100: string;
+  primaryColor80: string;
+  secondayColor100: string;
+  secondayColor80: string;
+}>`
   ${CSSReset};
   ${CSSScrollbars};
   
   :root {
     ${CSSScrollbars};
-    --colorPrimary100: rgba(29,0,84,1);
-    --colorPrimary80: rgba(29,0,84,0.800);
-    --colorSecondary100: rgba(80,100,180,1);
-    --colorSecondary80: rgba(80,100,180,0.800);
+    --colorPrimary100: ${(props) => props.primaryColor100};
+    --colorPrimary80: ${(props) => props.primaryColor80};;
+    --colorSecondary100: ${(props) => props.secondayColor100};;
+    --colorSecondary80: ${(props) => props.secondayColor80};;
     --colorSolidWhite: rgba(255,255,255,1);
     --colorSolidBlack: rgba(0,0,0,1);
     --colorSolidWhite30: rgba(255,255,255,0.300);

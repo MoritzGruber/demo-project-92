@@ -1,14 +1,14 @@
 import React, { useRef } from "react";
 import { Dash } from "../../../svgs/Dash";
 import { Plus } from "../../../svgs/Plus";
-import { IGenFaqItem } from "../../../utils/types_gen";
+import { IGenCompFaqItem } from "../../../utils/types_gen";
 import { Text } from "../../text/Text";
 import { SCompFaqItem } from "./styles/SCompFaqItem";
 import { SCompFaqItemTitle } from "./styles/SCompFaqItemTitle";
 import { SCompFaqItemContent } from "./styles/SCompFaqItemContent";
 
 export interface ICompFaqItem {
-  item: IGenFaqItem;
+  item: IGenCompFaqItem;
   handleActiveFaq: (id: string) => () => void;
   activeId: string;
 }

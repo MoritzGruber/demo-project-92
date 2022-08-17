@@ -16,7 +16,7 @@ export const CompFaq: React.FC<IGenCompFaq> = ({ faqItems }) => {
         {faqItems
           ? faqItems.map(
               (faqItem) =>
-                faqItem?.__typename === "FaqItem" && (
+                faqItem?.__typename === "CompFaqItem" && (
                   <CompFaqItem
                     item={faqItem}
                     key={faqItem?.id}

@@ -4,7 +4,7 @@ import { GridPadding } from "../../base-components/grid-padding/GridPadding";
 import { Grid } from "../../base-components/grid/Grid";
 import { COL_AMOUNT } from "../../constants/styles/grid";
 import { useUniversalText } from "../../provider/universalText";
-import { IGenBrandCategory, IGenCompGrid } from "../../utils/types_gen";
+import { IGenCompBrandCategory, IGenCompGrid } from "../../utils/types_gen";
 import { CompGridBrandCard } from "../comp-grid-brand-card/CompGridBrandCard";
 import { CompGridTeamMemberCard } from "../comp-grid-team-member-card/CompGridTeamMemberCard";
 import { SCompGrid } from "./styles/SCompGrid";
@@ -38,13 +38,13 @@ export const CompGrid: React.FC<IGenCompGrid> = ({
   const itemLen = items?.length ?? 0;
   for (let i = 0; i < itemLen; i++) {
     if (
-      ((items?.[i] as any)?.category as IGenBrandCategory)?.[0]?.title &&
+      ((items?.[i] as any)?.category as IGenCompBrandCategory)?.[0]?.title &&
       !allCategories.includes(
-        ((items?.[i] as any)?.category as IGenBrandCategory)?.[0]?.title
+        ((items?.[i] as any)?.category as IGenCompBrandCategory)?.[0]?.title
       )
     ) {
       allCategories.push(
-        ((items?.[i] as any)?.category as IGenBrandCategory)?.[0]?.title
+        ((items?.[i] as any)?.category as IGenCompBrandCategory)?.[0]?.title
       );
     }
   }

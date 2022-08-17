@@ -5,9 +5,9 @@ import useImageMedia from "../../hooks/useImageMedia";
 import {
   IGenAsset,
   IGenCompSectionHeader,
-  IGenVideo,
+  // IGenVideo,
 } from "../../utils/types_gen";
-import { Video } from "../video/Video";
+// import { Video } from "../video/Video";
 import { SCompSectionHeader } from "./styles/SCompSectionHeader";
 import { SCompSectionHeaderImage } from "./styles/SCompSectionHeaderImage";
 import { SCompSectionHeaderText } from "./styles/SCompSectionHeaderText";
@@ -22,28 +22,28 @@ export const CompSectionHeader: React.FC<IGenCompSectionHeader> = ({
     (image) => image?.__typename === "Asset"
   ) as IGenAsset;
 
-  const _video = image.find(
-    (image) => image?.__typename === "Video"
-  ) as IGenVideo;
+  // const _video = image.find(
+  //   (image) => image?.__typename === "Video"
+  // ) as IGenVideo;
 
   return (
     <SCompSectionHeader>
       <SCompSectionHeaderImage dominantColor={_image?.dominantColor}>
-        {_video ? (
+        {/* {_video ? (
           <Video id={_video.id} vimeoVideoId={_video.vimeoVideoId}></Video>
-        ) : (
-          <>
-            {_image && (
-              <Img
-                src={_image?.src}
-                resolution={{
-                  width: media,
-                  height: ~~(media * (media >= BREAKPOINTS.SILVER ? 0.3 : 1)),
-                }}
-              />
-            )}
-          </>
-        )}
+        ) : ( */}
+        <>
+          {_image && (
+            <Img
+              src={_image?.src}
+              resolution={{
+                width: media,
+                height: ~~(media * (media >= BREAKPOINTS.SILVER ? 0.3 : 1)),
+              }}
+            />
+          )}
+        </>
+        {/* )} */}
       </SCompSectionHeaderImage>
       <SCompSectionHeaderText>{title ?? ""}</SCompSectionHeaderText>
     </SCompSectionHeader>

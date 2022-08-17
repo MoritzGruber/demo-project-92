@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import {
-  IGenButton,
+  IGenCompButton,
   IGenFooter_LegalSection,
   IGenMegaMenu,
   IGenPage,
@@ -65,7 +65,7 @@ export const HeaderMenu: React.FC<IHeaderMenu & { homePageSlug?: string }> = ({
           totalAnimationItems={(navigation?.mainNavigation?.length || 0) + 1}
         >
           {legalSection?.map(
-            (legalSec: IGenButton) =>
+            (legalSec: IGenCompButton) =>
               legalSec?.id && (
                 <React.Fragment key={legalSec.id}>
                   <Link
@@ -82,7 +82,7 @@ export const HeaderMenu: React.FC<IHeaderMenu & { homePageSlug?: string }> = ({
                         setIsOpen(false);
                       }}
                     >
-                      {legalSec.__typename === "Button" && legalSec.title}
+                      {legalSec.__typename === "CompButton" && legalSec.title}
                     </SHeaderMenuImprintElement>
                   </Link>
                 </React.Fragment>

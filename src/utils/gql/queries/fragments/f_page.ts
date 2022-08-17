@@ -18,17 +18,17 @@ export const f_page = gql`
     metaTitle
     metaKeywords
     metaAuthor
-    # featuredImage {
-    #   ...Asset
-    #   ...NoDoc
-    # }
+    featuredImage {
+      ...Asset
+      ...NoDoc
+    }
     components(locale: $locale) {
       ... on CompFaq {
         __typename
         id
         title
         faqItems(locale: $locale) {
-          ... on FaqItem {
+          ... on CompFaqItem {
             __typename
             id
             title
@@ -59,8 +59,8 @@ export const f_page = gql`
         text
         imageRightInsteadOfLeft
         buttons(locale: $locale) {
-          ...Button
-          ...ButtonExternalLinks
+          ...CompButton
+          ...CompButtonExternalLinks
           ...NoDoc
         }
         asset(locale: $locale) {
@@ -102,8 +102,8 @@ export const f_page = gql`
         id
         text
         buttons(locale: $locale) {
-          ...Button
-          ...ButtonExternalLinks
+          ...CompButton
+          ...CompButtonExternalLinks
           ...NoDoc
         }
         __typename
@@ -132,7 +132,7 @@ export const f_page = gql`
             linksTo
             id
             category(locale: $locale) {
-              ... on BrandCategory {
+              ... on CompBrandCategory {
                 __typename
                 id
                 title

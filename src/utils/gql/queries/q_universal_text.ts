@@ -22,10 +22,12 @@ export const q_universal_text = gql`
       }
       pageNotFoundDescription
       pageNotFoundButton(locale: $locale) {
-        ...Button
-        ...ButtonExternalLinks
+        ...CompButton
+        ...CompButtonExternalLinks
         ...NoDoc
       }
+      secondaryColor
+      primaryColor
     }
   }
 `;

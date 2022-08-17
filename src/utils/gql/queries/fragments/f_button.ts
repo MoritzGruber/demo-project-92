@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const f_button = gql`
-  fragment Button on Button {
+  fragment CompButton on CompButton {
     __typename
     id
     title

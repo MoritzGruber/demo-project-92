@@ -76,7 +76,7 @@ export const Footer: React.FC<
                   legalSection.map(
                     (el) =>
                       el?.__typename !== "Caisy_Field_Document_NotFound" &&
-                      (el.__typename === "Button"
+                      (el.__typename === "CompButton"
                         ? el.link?.[0]?.__typename !==
                             "Caisy_Field_Document_NotFound" && (
                             <Link

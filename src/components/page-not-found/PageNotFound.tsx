@@ -1,7 +1,7 @@
 import React from "react";
 import { useUniversalText } from "../../provider/universalText";
 import { Arrow } from "../../svgs/Arrow";
-import { IGenButtonExternalLinks } from "../../utils/types_gen";
+import { IGenCompButtonExternalLinks } from "../../utils/types_gen";
 import { CompHeroSliderSlide } from "../comp-hero-slider/comp-hero-slider-slide/CompHeroSliderSlide";
 import { SCompImageWithTextButton } from "../comp-image-with-text/styles/SCompImageWithTextButton";
 import { SCompImageWithTextButtonContent } from "../comp-image-with-text/styles/SCompImageWithTextButtonContent";
@@ -34,10 +34,10 @@ export const PageNotFound: React.FC<{ homePageSlug?: string }> = ({
                 >
                   {button && (
                     <>
-                      {button?.__typename === "Button" ? (
+                      {button?.__typename === "CompButton" ? (
                         <a
                           href={`/${
-                            (button?.__typename === "Button" &&
+                            (button?.__typename === "CompButton" &&
                               button.link[0]?.__typename === "Page" &&
                               button?.link?.[0]?.slug) ??
                             ""
@@ -53,13 +53,15 @@ export const PageNotFound: React.FC<{ homePageSlug?: string }> = ({
                           href={
                             "https://" +
                             `${
-                              (button as IGenButtonExternalLinks)?.url
+                              (button as IGenCompButtonExternalLinks)?.url
                             }`.replace("https://", "")
                           }
                           target="_blank"
                         >
                           <SCompImageWithTextButtonContent>
-                            {`${(button as IGenButtonExternalLinks)?.title}`}
+                            {`${
+                              (button as IGenCompButtonExternalLinks)?.title
+                            }`}
                             <Arrow />
                           </SCompImageWithTextButtonContent>
                         </a>

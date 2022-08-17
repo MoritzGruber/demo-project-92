@@ -2,7 +2,7 @@ import React from "react";
 import { SCompTextBlock } from "./styles/SCompTextBlock";
 import { RichText } from "../../base-components/rich-text/RichText";
 import {
-  IGenButtonExternalLinks,
+  IGenCompButtonExternalLinks,
   IGenCompTextBlock,
 } from "../../utils/types_gen";
 import { GridPadding } from "../../base-components/grid-padding/GridPadding";
@@ -34,10 +34,10 @@ export const CompTextBlock: React.FC<IGenCompTextBlock> = ({
                 >
                   {button && (
                     <>
-                      {button?.__typename === "Button" ? (
+                      {button?.__typename === "CompButton" ? (
                         <a
                           href={`/${
-                            (button?.__typename === "Button" &&
+                            (button?.__typename === "CompButton" &&
                               button.link[0]?.__typename === "Page" &&
                               button?.link?.[0]?.slug) ??
                             ""
@@ -53,13 +53,15 @@ export const CompTextBlock: React.FC<IGenCompTextBlock> = ({
                           href={
                             "https://" +
                             `${
-                              (button as IGenButtonExternalLinks)?.url
+                              (button as IGenCompButtonExternalLinks)?.url
                             }`.replace("https://", "")
                           }
                           target="_blank"
                         >
                           <SCompImageWithTextButtonContent>
-                            {`${(button as IGenButtonExternalLinks)?.title}`}
+                            {`${
+                              (button as IGenCompButtonExternalLinks)?.title
+                            }`}
                             <Arrow />
                           </SCompImageWithTextButtonContent>
                         </a>

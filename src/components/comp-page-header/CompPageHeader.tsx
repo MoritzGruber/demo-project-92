@@ -8,13 +8,13 @@ import useImageMedia from "../../hooks/useImageMedia";
 import {
   IGenAsset,
   IGenCompPageHeader,
-  IGenVideo,
+  // IGenVideo,
 } from "../../utils/types_gen";
 import { GridItem } from "../../base-components/grid-item/GridItem";
 import { GridPadding } from "../../base-components/grid-padding/GridPadding";
 import { Grid } from "../../base-components/grid/Grid";
 import { SCompPageHeaderHeadlineWrapper } from "./styles/SCompPageHeaderHeadlineWrapper";
-import { Video } from "../video/Video";
+// import { Video } from "../video/Video";
 import { SCompPageHeaderBackdropShadow } from "./styles/SCompPageHeaderBackdropShadow";
 
 export const CompPageHeader: React.FC<IGenCompPageHeader> = ({
@@ -28,35 +28,35 @@ export const CompPageHeader: React.FC<IGenCompPageHeader> = ({
     (image) => image?.__typename === "Asset"
   ) as IGenAsset;
 
-  const _video = backgroundImage.find(
-    (image) => image?.__typename === "Video"
-  ) as IGenVideo;
+  // const _video = backgroundImage.find(
+  //   (image) => image?.__typename === "Video"
+  // ) as IGenVideo;
 
   return (
     <SCompPageHeader id={id} isBackgroundImage={!!_image?.src}>
       <SCompPageHeaderBackdropShadow />
-      {_video ? (
+      {/* {_video ? (
         <Video id={_video.id} vimeoVideoId={_video.vimeoVideoId}></Video>
-      ) : (
-        <>
-          {_image?.src ? (
-            <SCompPageHeaderBg>
-              <ImageWithAspectRatio
-                src={_image.src}
-                bronze={{ ratio: 1.173 }}
-                silver={{ ratio: 0.33 }}
-                resolution={{
-                  width: media,
-                  height: ~~(
-                    media * (media >= BREAKPOINTS.PLATINUM ? 0.33 : 1.173)
-                  ),
-                }}
-                alt={_image.title}
-              />
-            </SCompPageHeaderBg>
-          ) : null}
-        </>
-      )}
+      ) : ( */}
+      <>
+        {_image?.src ? (
+          <SCompPageHeaderBg>
+            <ImageWithAspectRatio
+              src={_image.src}
+              bronze={{ ratio: 1.173 }}
+              silver={{ ratio: 0.33 }}
+              resolution={{
+                width: media,
+                height: ~~(
+                  media * (media >= BREAKPOINTS.PLATINUM ? 0.33 : 1.173)
+                ),
+              }}
+              alt={_image.title}
+            />
+          </SCompPageHeaderBg>
+        ) : null}
+      </>
+      {/* )} */}
       {headline ? (
         <SCompPageHeaderHeadlineWrapper>
           <GridPadding>
