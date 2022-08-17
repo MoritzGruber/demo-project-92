@@ -120,12 +120,7 @@ const additiveLink = from([
   new HttpLink({
     uri: `https://caisy.io/api/v1/e/${process.env.CAISY_ID}/graphql`,
     headers: {
-      ...(process.env.NEXT_PUBLIC_USE_PREVIEW
-        ? { "x-caisy-preview": true }
-        : {}),
-      ...(process.env.CAISY_API_KEY
-        ? { "x-caisy-apikey": process.env.CAISY_API_KEY }
-        : {}),
+      "x-caisy-apikey": process.env.CAISY_API_KEY,
     },
     fetch: customFetch,
   }),
